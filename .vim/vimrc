@@ -1,4 +1,12 @@
+" Pathogen run
 execute pathogen#infect()
+" Vundle run
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#rc()
+Plugin 'VundleVim/Vundle.vim'
+
+call vundle#end()            " required
+
 map <leader>s :source ~/.vimrc<CR>
 
 filetype on
@@ -19,5 +27,9 @@ set showmatch
 set noshowmode
 set laststatus=2
 
-colorscheme monokai
+" Theme settings
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+
 set t_Co=256
