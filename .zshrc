@@ -86,4 +86,5 @@ source $ZSH/oh-my-zsh.sh
 
 
 alias vi="vim"
+alias data="cd /mnt/c/Users/mazur/Data/"
 

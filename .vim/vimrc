@@ -1,35 +1,70 @@
-" Pathogen run
-execute pathogen#infect()
-" Vundle run
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-Plugin 'VundleVim/Vundle.vim'
-
-call vundle#end()            " required
-
-map <leader>s :source ~/.vimrc<CR>
-
-filetype on
+set enc=utf-8 " Sets the character encoding used inside wVim. 
+set fenc=utf-8 " Sets the character encoding for the file of this buffer.
+" turn syntax highlighting on
 syntax on
-set nocompatible
+set t_Co=256
+
+" turn line numbers on
 set number
-set hidden
-set history=100
-filetype indent on
-set nowrap
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set smartindent
-set autoindent
-set hlsearch
-set showmatch
-set noshowmode
+
+"mouse 
+":set mouse=a
+
+" higghligte search
+:set hlsearch
+:hi Search guibg=LightBlue
+
+"show status line
+":set laststatus=2
+
+set backspace=2 " make backspace work like most other apps
 set laststatus=2
 
-" Theme settings
-set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
+set nocompatible               " be iMproved
+filetype off
 
-set t_Co=256
+" easy buffer navigation
+noremap <C-Left> <C-w>h
+noremap <C-Down> <C-w>j
+noremap <C-Up> <C-w>k
+noremap <C-Right> <C-w>l
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+" Bundle 'bling/vim-airline'
+" Bundle 'vim-scripts/c.vim'
+"Bundle 'drmikehenry/vim-headerguard'
+"Bundle 'majutsushi/tagbar'
+"Bundle 'jlanzarotta/bufexplorer'
+"Bundle 'scrooloose/nerdtree'
+"Bundle 'jistr/vim-nerdtree-tabs'
+"Bundle 'scrooloose/syntastic'
+"Bundle "justmao945/vim-clang"
+"Bundle "Chiel92/vim-autoformat"
+Bundle "nanotech/jellybeans.vim"
+Plugin 'itchyny/lightline.vim'
+"Bundle "SublimeText/CTags"
+
+filetype plugin indent on     " required!
+
+let g:jellybeans_overrides = {
+\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+\}
+
+let g:jellybeans_overrides = {
+\    'background': { 'guibg': '000000' },
+\}
+
+colorscheme jellybeans
+
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
+
+set noshowmode
+vmap <C-c> "+y
+
+source ~/.vim/bundle/mark.vim
