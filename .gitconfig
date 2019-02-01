@@ -1,0 +1,5 @@
+[http]
+	proxy = http://10.144.1.10:8080
+[user]
+	email = whatironyis@gmail.com
+	name = whatironyis
